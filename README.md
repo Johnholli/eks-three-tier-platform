@@ -10,18 +10,21 @@ This repo provisions an EKS cluster with a VPC (public/private subnets, NAT, flo
 ## Architecture
 ```mermaid
 flowchart LR
-  User[User/Browser] --> ALB[ALB Ingress]
-  ALB --> FE[Frontend Pod]
-  ALB -->|/api| BE[Backend Pod]
-  BE --> DB[MongoDB Pod]
-  Bastion[Bastion (SSM)] --> EKS[EKS Cluster]
+User[User/Browser] --> ALB[ALB Ingress]
+ALB --> FE[Frontend Pod]
+ALB -->|/api| BE[Backend Pod]
+BE --> DB[MongoDB Pod]
+Bastion[Bastion SSM] --> EKS[EKS Cluster]
 ```
 
 ## Screenshots
-![App UI](docs/screenshots/app-ui.png)
-![API Verification](docs/screenshots/api-curl.png)
-![Kubernetes Pods](docs/screenshots/kubectl-pods.png)
-![Ingress Address](docs/screenshots/ingress.png)
+<img src="docs/screenshots/app-ui.png" alt="App UI" width="900" />
+
+<img src="docs/screenshots/api-curl.png" alt="API Verification" width="700" />
+
+<img src="docs/screenshots/kubectl-pods.png" alt="Kubernetes Pods" width="700" />
+
+<img src="docs/screenshots/ingress.png" alt="Ingress Address" width="700" />
 
 ## Repo Layout
 - terraform/: core infrastructure (VPC, EKS, bastion, IRSA roles)
