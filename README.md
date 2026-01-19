@@ -20,11 +20,11 @@ Bastion[Bastion SSM] --> EKS[EKS Cluster]
 ## Screenshots
 <img src="docs/screenshots/app-ui.png" alt="App UI" width="900" />
 
-<img src="docs/screenshots/api-curl.png" alt="API Verification" width="700" />
+<img src="https://github.com/user-attachments/assets/d49bce40-e49a-4681-85a2-ed27f3c3b020" />
 
-<img src="docs/screenshots/kubectl-pods.png" alt="Kubernetes Pods" width="700" />
+<img src="https://github.com/user-attachments/assets/a1e9f4e2-42bf-4b3c-b7fd-844ba54c5eda" />
 
-<img src="docs/screenshots/ingress.png" alt="Ingress Address" width="700" />
+<img src="https://github.com/user-attachments/assets/153b6b0b-fecc-43c4-a9c3-76efd7f5412d" />
 
 ## Repo Layout
 - terraform/: core infrastructure (VPC, EKS, bastion, IRSA roles)
