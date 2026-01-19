@@ -30,6 +30,12 @@ Bastion[Bastion SSM] --> EKS[EKS Cluster]
 - terraform/: core infrastructure (VPC, EKS, bastion, IRSA roles)
 - terraform/three-tier-eks-iac/: app source + manifests + updated README
 
+## Project Highlights
+- Built a complete three-tier app platform on EKS using Terraform
+- Secured access with a bastion and least-privilege IAM roles (IRSA)
+- Automated scaling and ingress with Kubernetes controllers
+- Verified end-to-end app + API + database connectivity
+
 ## Prerequisites
 - Terraform >= 1.5
 - AWS CLI v2
