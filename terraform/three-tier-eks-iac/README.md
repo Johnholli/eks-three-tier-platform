@@ -1,5 +1,21 @@
 # three-tier-eks-iac
 
+# Architecture
+```mermaid
+flowchart LR
+  User[User/Browser] --> ALB[ALB Ingress]
+  ALB --> FE[Frontend Pod]
+  ALB -->|/api| BE[Backend Pod]
+  BE --> DB[MongoDB Pod]
+  Bastion[Bastion (SSM)] --> EKS[EKS Cluster]
+```
+
+# Screenshots
+![App UI](../../docs/screenshots/app-ui.png)
+![API Verification](../../docs/screenshots/api-curl.png)
+![Kubernetes Pods](../../docs/screenshots/kubectl-pods.png)
+![Ingress Address](../../docs/screenshots/ingress.png)
+
 # Prerequisites
 
 **Install Kubectl**

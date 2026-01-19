@@ -7,6 +7,22 @@
 
 This repo provisions an EKS cluster with a VPC (public/private subnets, NAT, flow logs), a bastion for access, and a three-tier demo app (frontend, backend, MongoDB) deployed via Kubernetes manifests.
 
+## Architecture
+```mermaid
+flowchart LR
+  User[User/Browser] --> ALB[ALB Ingress]
+  ALB --> FE[Frontend Pod]
+  ALB -->|/api| BE[Backend Pod]
+  BE --> DB[MongoDB Pod]
+  Bastion[Bastion (SSM)] --> EKS[EKS Cluster]
+```
+
+## Screenshots
+![App UI](docs/screenshots/app-ui.png)
+![API Verification](docs/screenshots/api-curl.png)
+![Kubernetes Pods](docs/screenshots/kubectl-pods.png)
+![Ingress Address](docs/screenshots/ingress.png)
+
 ## Repo Layout
 - terraform/: core infrastructure (VPC, EKS, bastion, IRSA roles)
 - terraform/three-tier-eks-iac/: app source + manifests + updated README
