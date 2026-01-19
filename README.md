@@ -96,3 +96,29 @@ kubectl logs -n kube-system deployment/cluster-autoscaler-aws-cluster-autoscaler
 cd terraform
 terraform destroy
 ```
+
+## Destroy Checklist
+1) Delete app resources
+```
+kubectl delete -f k8s_manifests/full_stack_lb.yaml
+kubectl delete -f k8s_manifests/frontend-deployment.yaml
+kubectl delete -f k8s_manifests/frontend-service.yaml
+kubectl delete -f k8s_manifests/backend-deployment.yaml
+kubectl delete -f k8s_manifests/backend-service.yaml
+kubectl delete -f k8s_manifests/mongo/deploy.yaml
+kubectl delete -f k8s_manifests/mongo/service.yaml
+kubectl delete -f k8s_manifests/mongo/secrets.yaml
+```
+
+2) Remove Helm installs (optional)
+```
+helm uninstall aws-load-balancer-controller -n kube-system
+helm uninstall cluster-autoscaler -n kube-system
+helm uninstall cert-manager -n cert-manager
+```
+
+3) Destroy infra
+```
+cd terraform
+terraform destroy
+```
