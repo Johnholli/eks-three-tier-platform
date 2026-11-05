@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 21.14.0"
 
   name               = local.cluster_name
-  kubernetes_version = "1.29"
+  kubernetes_version = "1.35"
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -25,17 +25,17 @@ module "eks" {
   }
 
   # REQUIRED in v21
-  enable_irsa = true
+  enable_irsa                              = true
   enable_cluster_creator_admin_permissions = true
 
   # Addons (do NOT pin versions yet)
   addons = {
     vpc-cni = {
-      before_compute = true
+      before_compute              = true
       resolve_conflicts_on_create = "OVERWRITE"
       resolve_conflicts_on_update = "OVERWRITE"
-
-      service_account_role_arn = module.vpc_cni_irsa.iam_role_arn
+      service_account_role_arn    = module.vpc_cni_irsa.iam_role_arn
+      configuration_values        = jsonencode({ enableNetworkPolicy = "true" })
     }
     coredns = {
       resolve_conflicts_on_create = "OVERWRITE"
@@ -79,8 +79,8 @@ module "eks" {
       disk_size = 20
 
       tags = {
-        "k8s.io/cluster-autoscaler/enabled"                = "true"
-        "k8s.io/cluster-autoscaler/${local.cluster_name}"  = "owned"
+        "k8s.io/cluster-autoscaler/enabled"               = "true"
+        "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
       }
 
       subnet_ids = module.vpc.private_subnets
@@ -91,7 +91,7 @@ module "eks" {
 }
 
 module "vpc_cni_irsa" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
   version = "~> 5.39"
 
   role_name_prefix = "${local.cluster_name}-vpc-cni"

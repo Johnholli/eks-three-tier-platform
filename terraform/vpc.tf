@@ -16,9 +16,9 @@ module "vpc" {
   single_nat_gateway     = true
   one_nat_gateway_per_az = false
 
-  enable_flow_logs             = true
-  flow_logs_destination_type   = "cloud-watch-logs"
-  flow_logs_retention_in_days  = 14
+  enable_flow_logs            = true
+  flow_logs_destination_type  = "cloud-watch-logs"
+  flow_logs_retention_in_days = 14
 
   # EKS discovers subnets using these tags:
   public_subnet_tags = {

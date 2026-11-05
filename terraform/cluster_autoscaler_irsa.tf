@@ -4,8 +4,8 @@ module "cluster_autoscaler_irsa" {
 
   role_name_prefix = "${local.cluster_name}-cluster-autoscaler"
 
-  attach_cluster_autoscaler_policy  = true
-  cluster_autoscaler_cluster_names  = [local.cluster_name]
+  attach_cluster_autoscaler_policy = true
+  cluster_autoscaler_cluster_names = [local.cluster_name]
 
   oidc_providers = {
     main = {
