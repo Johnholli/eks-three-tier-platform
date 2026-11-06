@@ -66,11 +66,11 @@ module "eks" {
     default = {
       name = "ng-default"
 
-      instance_types = ["t3.medium"]
+      instance_types = ["m7i-flex.large"]
 
-      min_size     = 2
-      max_size     = 2
-      desired_size = 2
+      min_size     = 1
+      max_size     = 1
+      desired_size = 1
 
       # IMPORTANT:
       # Let v21 choose AL2023 automatically

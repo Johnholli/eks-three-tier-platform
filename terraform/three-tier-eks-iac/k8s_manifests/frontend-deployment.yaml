@@ -30,6 +30,13 @@ spec:
             value: "http://app.sandipdas.in/api/tasks" #$API_ELB_PUBLIC_FQDN #add your API_Load_Balancer DNS manually here if app does not run
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
         # livenessProbe:
         #   httpGet:
         #     path: /
