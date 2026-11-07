@@ -160,9 +160,9 @@ If the ingress `ADDRESS` is set, grab the ALB DNS and test the app. The backend 
 ```
 ALB_DNS=$(kubectl get ingress -n workshop mainlb -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
-curl -H "Host: app.sandipdas.in" http://${ALB_DNS}
-curl -H "Host: app.sandipdas.in" http://${ALB_DNS}/api/tasks
-curl -H "Host: app.sandipdas.in" -H "Content-Type: application/json" -X POST -d '{"task":"test task"}' http://${ALB_DNS}/api/tasks
+curl -H "Host: app.example.com" http://${ALB_DNS}
+curl -H "Host: app.example.com" http://${ALB_DNS}/api/tasks
+curl -H "Host: app.example.com" -H "Content-Type: application/json" -X POST -d '{"task":"test task"}' http://${ALB_DNS}/api/tasks
 ```
 
 Note: If you change the ingress host, update the `Host` header to match it.
